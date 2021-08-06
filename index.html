@@ -9,6 +9,14 @@
   let transactionState = 0; // state of this transaction
   let totalState = 0; // Account total at Bank
   let status = "Account Balance $zero";
-  const handleChange = (value) => {};
-  const handleSubmit = () => {};
+  const handleChange = (value) => {
+    console.log(`handleChange ${value}`);
+    transactionState = Number(value);
+  };
+  const handleSubmit = () => {
+    totalState += transactionState;
+    status = `Account Balance $ ${totalState}`;
+    // write into the DOM
+    document.getElementById("total").innerHTML = status;
+  };
 </script>
